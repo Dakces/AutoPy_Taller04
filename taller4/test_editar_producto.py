@@ -54,7 +54,7 @@ class EditarProductoTest(unittest.TestCase):
 
             self.assertNotEqual(self.url_base, driver.current_url)
             texto_esperado = pagina_editar.recuperar_alerta()
-            self.assertEqual('', texto_esperado)
+            self.assertEqual('Codigo: El codigo debe tener exactamente 8 caracteres', texto_esperado)
         except Exception as e:
             self.fail(f"No se puede continuar con la actualizacion debido a un problema en el campo {texto_esperado}")
 
@@ -78,7 +78,7 @@ class EditarProductoTest(unittest.TestCase):
 
             self.assertNotEqual(self.url_base, driver.current_url)
             texto_esperado = pagina_editar.recuperar_alerta()
-            self.assertEqual('', texto_esperado)
+            self.assertEqual('Nombre: El nombre debe tener entre 5 y 80 caracteres.', texto_esperado)
         except Exception as e:
             self.fail(f"No se puede continuar con la actualizacion debido a un problema en el campo {texto_esperado}")
 
@@ -102,7 +102,7 @@ class EditarProductoTest(unittest.TestCase):
 
             self.assertNotEqual(self.url_base, driver.current_url)
             texto_esperado = pagina_editar.recuperar_alerta()
-            self.assertEqual('', texto_esperado)
+            self.assertEqual('Precio: Ensure this value is greater than or equal to 0.01.', texto_esperado)
         except Exception as e:
             self.fail(f"Unable to continue with the update due to a problem in the field {texto_esperado}")
 
