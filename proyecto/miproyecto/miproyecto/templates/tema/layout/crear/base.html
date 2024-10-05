@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+{% load static %}
+{% load custom_tags %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | General Form Elements</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="{% static 'theme1/plugins/fontawesome-free/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'theme1/dist/css/adminlte.min.css' %}">
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <a href="../../index3.html" class="brand-link">
+    <!--
+      <img src="" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      -->
+      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    </a>
+    <div class="sidebar">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+        <!--
+          <img src="" class="img-circle elevation-2" alt="User Image">
+          -->
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Alexander Pierce</a>
+        </div>
+      </div>
+      {% include 'theme1/include/navbar.html' %}
+    </div>
+  </aside>
+  <div class="content-wrapper">
+  {% block content %}{% endblock content %}
+  </div>
+  {% include 'theme1/include/footer.html' %}
+  <aside class="control-sidebar control-sidebar-dark">
+  </aside>
+</div>
+{% include 'theme1/layout/create/scripts.html' %}
+{% block javascripts %}
+{% endblock javascripts %}
+</body>
+</html>

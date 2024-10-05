@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% load static %}
+{% load custom_tags %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AdminLTE 3 | Log in</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="{% static 'theme1/plugins/fontawesome-free/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'theme1/plugins/icheck-bootstrap/icheck-bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'theme1/dist/css/adminlte.min.css' %}">
+</head>
+<body class="hold-transition login-page">
+{% block content %}{% endblock content %}
+
+<script src="{% static 'theme1/plugins/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'theme1/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'theme1/dist/js/adminlte.min.js' %}"></script>
+{% block javascripts %}
+{% endblock javascripts %}
+</body>
+</html>

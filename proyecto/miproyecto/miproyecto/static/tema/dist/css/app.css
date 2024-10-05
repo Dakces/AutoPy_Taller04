@@ -1,0 +1,29 @@
+table.dataTable.stripe tbody tr.odd.selected, table.dataTable.display tbody tr.odd.selected {
+    background-color: #acbad4;
+}
+
+table.dataTable.stripe tbody tr.odd, table.dataTable.display tbody tr.odd {
+    background-color: #f9f9f9;
+}
+table.dataTable tbody tr.selected {
+    background-color: #b0bed9;
+}
+table.dataTable tbody tr {
+    background-color: #fff;
+}
+
+.upper-text{
+  text-transform: uppercase;
+}
+
+.remove-slot{
+  padding:.2rem .2rem;
+}
+
+.app-fullname{
+ color: #c2c7d0;
+}
+
+.app-username{
+ color: #c2c7d0;
+}

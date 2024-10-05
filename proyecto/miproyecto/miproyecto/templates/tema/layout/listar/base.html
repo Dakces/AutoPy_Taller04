@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clase Selenium Testing</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="{% static 'tema/plugins/fontawesome-free/css/all.min.css' %}">
+  <link rel="stylesheet" href="{% static 'tema/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css' %}">
+  <link rel="stylesheet" href="{% static 'tema/plugins/datatables-responsive/css/responsive.bootstrap4.min.css' %}">
+  <link rel="stylesheet" href="{% static 'tema/plugins/datatables-buttons/css/buttons.bootstrap4.min.css' %}">
+  <link rel="stylesheet" href="{% static 'tema/dist/css/adminlte.min.css' %}">
+  <style>
+  table tr.selected{
+    background-color: rgb(107 107 110 / 60%);
+  }
+
+  .table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgb(135 133 133 / 5%);
+  }
+  
+  .table-striped tbody tr.selected{
+    background-color: rgb(107 107 110 / 60%);!important
+  }
+  </style>
+</head>
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <a href="../../index3.html" class="brand-link">
+      <span class="brand-text font-weight-light">Clase Selenium</span>
+    </a>
+    <div class="sidebar">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <div class="image">
+        </div>
+        <div class="info">
+          <a href="#" class="d-block">Usuario Autenticado</a>
+          <a class="d-block" href="">Cerrar Sesion</a>
+        </div>
+      </div>
+      {% include 'tema/include/navbar.html' %}
+    </div>
+  </aside>
+  <div class="content-wrapper">
+  {% block content %}{% endblock content %}
+  </div>
+  <aside class="control-sidebar control-sidebar-dark">
+  </aside>  
+</div>
+{% include 'tema/layout/listar/scripts.html' %}
+{% block javascripts %}{% endblock javascripts %}
+</body>
+</html>

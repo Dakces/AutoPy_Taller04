@@ -1,0 +1,62 @@
+﻿{% load static %}
+
+<script src="{% static 'tema/plugins/jquery/jquery.min.js' %}"></script>
+
+<script src="{% static 'tema/plugins/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+<script src="{% static 'tema/plugins/datatables/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'tema/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'tema/plugins/datatables-responsive/js/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'tema/plugins/datatables-responsive/js/responsive.bootstrap4.min.js' %}"></script>
+<script src="{% static 'tema/plugins/datatables-buttons/js/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'tema/plugins/datatables-buttons/js/buttons.bootstrap4.min.js' %}"></script>
+<script src="{% static 'tema/plugins/jszip/jszip.min.js' %}"></script>
+<script src="{% static 'tema/plugins/pdfmake/pdfmake.min.js' %}"></script>
+<script src="{% static 'tema/plugins/pdfmake/vfs_fonts.js' %}"></script>
+<script src="{% static 'tema/plugins/datatables-buttons/js/buttons.html5.min.js' %}"></script>
+<script src="{% static 'tema/plugins/datatables-buttons/js/buttons.print.min.js' %}"></script>
+<script src="{% static 'tema/plugins/datatables-buttons/js/buttons.colVis.min.js' %}"></script>
+<script src="{% static 'tema/dist/js/adminlte.min.js' %}"></script>
+<script>
+$(function () {
+  var edit_url = $("#edit_record").attr("data-url");
+  var view_url = $("#view_record").attr("data-url");
+  var delete_url = $("#delete_record").attr("data-url");
+  var current_id=0; 
+  
+  function enableButtons(recordId){
+    current_id = parseInt(recordId);
+    $("#edit_record").removeClass("disabled");
+    $("#view_record").removeClass("disabled");
+    $("#delete_record").removeClass("disabled");
+    $("#edit_record").prop("href",edit_url+recordId);
+    $("#view_record").prop("href",view_url+recordId);
+    $("#delete_modal_form").prop("action",delete_url+recordId);
+  }
+  
+  function disableButtons(){
+    current_id=0;
+    $("#edit_record").addClass("disabled");
+    $("#view_record").addClass("disabled");
+    $("#delete_record").addClass("disabled");
+    $("#edit_record").prop("href",edit_url);
+    $("#view_record").prop("href",view_url);
+    $("#delete_modal_form").prop("action",delete_url);
+  } 
+  
+  $('#datatable tbody').on( 'click', 'tr', function () {
+    console.log($(this).attr("data-not-click"));
+    if (typeof $(this).attr("data-not-click") =="undefined"){
+      if ( $(this).hasClass('selected') ) {
+          $(this).removeClass('selected');
+          disableButtons();
+      }
+      else {
+          $('#datatable tr.selected').removeClass('selected');
+          $(this).addClass('selected');
+          enableButtons($(this).attr("data-id"));
+      }
+    }
+  });  
+});
+</script>

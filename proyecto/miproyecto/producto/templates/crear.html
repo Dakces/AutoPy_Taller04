@@ -1,0 +1,106 @@
+{% extends "tema/layout/listar/base.html" %}
+{% load static %}
+{% load i18n %}
+{% block content %}
+<section class="content-header">
+    <nav class="navbar navbar-expand navbar-white navbar-light">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link"><strong style="font-size:1.1rem">{{labels.page_title}}</strong></a>
+        </li>
+      </ul>
+    </nav>
+</section>
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">    
+            <div class="card card-secondary">
+              <div class="card-header">
+                <h3 class="card-title">Datos de Producto</h3>
+              </div>
+			  		{% if form.errors %}
+            <div class="alert alert-danger" role="alert" style="margin:10px;">
+            {% for field in form %}
+              {% for error in field.errors %}
+               <span style="display:block;"> {{ field.label }}: {{ error|escape }}</span>
+              {% endfor %}
+            {% endfor %}
+            </div>
+          {% endif %}
+              <form name="empresa_form" method="POST">
+              {% csrf_token %}            
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="{{ form.tax_id.id_for_label  }}">{{ form.codigo.label }}</label>
+                        {{ form.codigo }}
+                        {% for error in form.codigo.errors %}
+                          <span class="error invalid-feedback">{{ error|escape }}</span>
+                        {% endfor %}
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="{{ form.nombre.id_for_label  }}">{{ form.nombre.label }}</label>
+                        {{ form.nombre }}
+                        {% for error in form.nombre.errors %}
+                          <span class="error invalid-feedback">{{ error|escape }}</span>
+                        {% endfor %}
+                      </div>
+                    </div>                
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="{{ form.cantidad_minima.id_for_label  }}">{{ form.cantidad_minima.label }}</label>
+                        {{ form.cantidad_minima }}
+                        {% for error in form.cantidad_minima.errors %}
+                          <span class="error invalid-feedback">{{ error|escape }}</span>
+                        {% endfor %}
+                      </div> 
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label for="{{ form.precio.id_for_label  }}">{{ form.precio.label }}</label>
+                        {{ form.precio }}
+                        {% for error in form.precio.errors %}
+                          <span class="error invalid-feedback">{{ error|escape }}</span>
+                        {% endfor %}
+                      </div> 
+                    </div>
+                  </div>
+				  <div class="row">
+					  <div class="col">
+						<div class="form-group">
+                        <label for="{{ form.descripcion.id_for_label  }}">{{ form.descripcion.label }}</label>
+                        {{ form.descripcion }}
+                        {% for error in form.descripcion.errors %}
+                          <span class="error invalid-feedback">{{ error|escape }}</span>
+                        {% endfor %}
+						</div> 
+					  </div>
+				  </div>
+                </div>
+                <div class="card-footer">
+                  <button id="btnSave" type="submit" class="btn btn-secondary">
+                    <i class="fa fa-save"></i>&nbsp;&nbsp;Guardar
+                  </button>
+                  <a id="btnCancel"  href="{{ back_url }}" class="btn btn-default float-right">
+                    <i class="fa fa-times"></i>&nbsp;&nbsp;Cancelar
+                  </a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock content %}
+{% block javascripts %}
+<script src="{% static 'theme1/js/app.js' %}"></script>
+{% endblock javascripts %}
